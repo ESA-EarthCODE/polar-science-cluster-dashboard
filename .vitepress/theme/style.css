@@ -63,7 +63,7 @@ eo-dash .eodash-overlay p {
 }
 .nav-desktop:after {
   content: "";
-  background-image: url("/assets/trilateral_logo.svg");
+  /* background-image: url("/assets/trilateral_logo.svg"); */
   background-size: cover;
   height: 32px;
   width: 166px;

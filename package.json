@@ -1,5 +1,5 @@
 {
-  "name": "polar-science-cluster-client",
+  "name": "polar-science-cluster-dashboard",
   "type": "module",
   "scripts": {
     "start": "npm run dev",
