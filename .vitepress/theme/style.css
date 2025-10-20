@@ -1,0 +1,72 @@
+/**
+ * Customize default theme styling by overriding CSS variables:
+ * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
+ */
+
+
+/* fix for hero section not appearing in stories */
+/*
+body {
+  z-index: 0;
+  position: absolute;
+}
+*/
+/* fix for eodash setting the body to overflow hidden */
+/*
+:root {
+  overflow-y: auto!important;
+}
+  */
+
+eo-dash a[href="https://eox.at"] img
+{
+  display: unset;
+  height: 9px;
+}
+eo-dash .eodash-overlay p {
+  bottom: -13px !important;
+}
+
+/**
+ * Component: Algolia
+ * -------------------------------------------------------------------------- */
+
+.DocSearch {
+  --docsearch-primary-color: var(--vp-c-brand-1) !important;
+}
+/*
+:root,
+.VPNav {
+  --vp-nav-bg-color: var(--vp-c-trilateral-gray);
+  --vp-nav-logo-height: 50px;
+
+  background: var(--vp-c-trilateral-gray);
+}
+.VPNav {
+  --vp-c-brand-1: rgb(191, 228, 253);
+  --vp-c-text-1: white;
+}
+*/
+
+.top-nav,
+.top-nav nav .button {
+  background: var(--primary);
+  color: var(--on-primary) !important;
+}
+.top-nav {
+  box-shadow: 0 1px 5px #15142e0d, 0 4px 16px #15142e1a;
+  height: 60px;
+}
+:root,
+:root:has(.top-nav.at-top) {
+  --vp-nav-height: 60px !important;
+}
+.nav-desktop:after {
+  content: "";
+  background-image: url("/assets/trilateral_logo.svg");
+  background-size: cover;
+  height: 32px;
+  width: 166px;
+  position: absolute;
+  right: 24px;
+}

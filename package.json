@@ -1,0 +1,17 @@
+{
+  "name": "polar-science-cluster-client",
+  "type": "module",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "dependencies": {
+    "@eodash/eodash": "https://pkg.pr.new/eodash/eodash/@eodash/eodash@56c29dc",
+    "@eox/pages-theme-eox": "^0.10.1",
+    "@eox/storytelling": "^1.9.4",
+    "mustache": "^4.2.0",
+    "vitepress": "^1.6.3"
+  }
+}
