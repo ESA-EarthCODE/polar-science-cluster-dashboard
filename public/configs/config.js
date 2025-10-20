@@ -7,7 +7,7 @@ function isMobile() {
 export default {
   id: "demo",
   stacEndpoint:
-    "https://ESA-EarthCODE.github.io/polar-science-cluster-catalog-catalog/polar-science-cluster/catalog.json",
+    "https://ESA-EarthCODE.github.io/polar-science-cluster-catalog/polar-science-cluster/catalog.json",
   brand: {
     noLayout: true,
     name: "Polar Science Cluster",
