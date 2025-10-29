@@ -1,11 +1,9 @@
-import { defineConfig } from "vitepress";
-import baseConfig from "@eox/pages-theme-eox/config";
-
-const brandId = "eodashboard"; // for now
+import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  extends: baseConfig(brandId),
+  title: "Polar Science Cluster",
+  description: "Cerulean Information Factory Dashboard",
   vue: {
     template: {
       compilerOptions: {
@@ -20,7 +18,6 @@ export default defineConfig({
     }
   },
   themeConfig: {
-    
     nav: [
       { text: "Home", link: "/" },
       { text: "Dashboard", link: "/explore" },

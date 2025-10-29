@@ -1,11 +1,14 @@
-import EOX from "@eox/pages-theme-eox";
-
+import DefaultTheme from 'vitepress/theme'
+import { h } from 'vue'
 /** @type {import('vitepress').Theme} */
 export default {
-  ...EOX,
+  extends: DefaultTheme,
+  Layout: () => {
+    return h(DefaultTheme.Layout, null, {
+      // https://vitepress.dev/guide/extending-default-theme#layout-slots
+    })
+  },
   async enhanceApp({ app, router, siteData }) {
-    EOX.enhanceApp({ app, router, siteData });
-    
     if (!import.meta.env.SSR) {
       await import("./style.css");
       await import("@eodash/eodash/webcomponent");
