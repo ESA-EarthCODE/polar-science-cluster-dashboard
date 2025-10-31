@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Polar Science Cluster",
-  description: "Cerulean Information Factory Dashboard",
+  title: "Antarctica InSync Dashboard",
+  description: "Antarctica InSync Dashboard",
   vue: {
     template: {
       compilerOptions: {
