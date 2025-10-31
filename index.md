@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "ESA-EarthCODE Antarctica InSync Dashboard"
   tagline: "Antarctica International Science & Infrastructure for Synchronous Observation"
-  text: "Antarctica InSync"
+  text: ""
   # background: 
   #   src: ./assets/EO_Dashboard_kv_no_logos.jpg
 ---
