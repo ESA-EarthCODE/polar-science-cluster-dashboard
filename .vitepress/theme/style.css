@@ -47,6 +47,9 @@ eo-dash .eodash-overlay p {
   --vp-c-text-1: white;
 }
 */
+:root {
+  --vp-home-hero-name-color: #003E6E;
+}
 
 .top-nav,
 .top-nav nav .button {

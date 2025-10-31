@@ -13,8 +13,8 @@ export default {
     name: "Polar Science Cluster",
     theme: {
       colors: {
-        primary: "#3333",
-        secondary: "#A3A3A3",
+        primary: "#003E6E",
+        secondary: "#6E8E9C",
         surface: "#ffff",
       },
       variables: {
@@ -26,7 +26,7 @@ export default {
         "#009E73",
         "#E69F00",
         "#56B4E9",
-        "#009E73",
+        "#599111",
         "#F0E442",
         "#0072B2",
         "#D55E00",
@@ -59,12 +59,14 @@ export default {
         widget: {
           name: "EodashMap",
           properties: {
+            center: [49, -56],
+            zoom: 4,
             enableCompare: true,
             zoomToExtent: true,
             btns: {
               enableExportMap: true,
               enableCompareIndicators: true,
-              enableSearch: true,
+              enableSearch: false,
               enableBackToPOIs: true,
             },
             btnsPosition: {
@@ -90,24 +92,10 @@ export default {
                 enableHighlighting: false,
                 filterProperties: [
                   {
-                    keys: ["title", "themes"],
+                    keys: ["title"],
                     title: "Search",
                     placeholder: "Search by name",
                     type: "text",
-                    expanded: isMobile() ? false : true,
-                  },
-                  {
-                    key: "themes",
-                    title: "Themes",
-                    placeholder: "Filter by theme",
-                    type: "multiselect",
-                    expanded: isMobile() ? false : true,
-                  },
-                  {
-                    key: "tags",
-                    title: "Tags",
-                    placeholder: "Filter by tags",
-                    type: "multiselect",
                     expanded: isMobile() ? false : true,
                   },
                 ],
@@ -115,9 +103,6 @@ export default {
                 resultType: "cards",
                 subTitleProperty: "subtitle",
                 imageProperty: "thumbnail",
-                style: {
-                  "--select-filter-max-items": 8,
-                },
               },
             },
           },
@@ -193,288 +178,6 @@ export default {
         },
       ],
     },
-    light: {
-      gap: 16,
-      loading: {
-        id: Symbol(),
-        type: "web-component",
-        widget: {
-          // https://uiball.com/ldrs/
-          link: "https://cdn.jsdelivr.net/npm/ldrs/dist/auto/mirage.js",
-          tagName: "l-mirage",
-          properties: {
-            class: "align-self-center justify-self-center",
-            size: "120",
-            speed: "2.5",
-            color: "#004170",
-          },
-        },
-      },
-      background: {
-        id: "background-map-light",
-        type: "internal",
-        widget: {
-          name: "EodashMap",
-          properties: {
-            enableCompare: false,
-            zoomToExtent: true,
-            btns: {
-              enableExportMap: false,
-              enableCompareIndicators: false,
-              enableSearch: true,
-            },
-            btnsPosition: {
-              x: "12/9/10",
-              y: 2,
-            },
-          },
-        },
-      },
-      widgets: [
-        {
-          id: Symbol(),
-          type: "internal",
-          title: "Tools",
-          layout: { x: 0, y: 0, w: "3/3/2", h: 1 },
-          widget: {
-            name: "EodashTools",
-            properties: {
-              layoutTarget: "expert",
-              layoutIcon:
-                "M2,5V19H8V5H2M9,5V10H15V5H9M16,5V14H22V5H16M9,11V19H15V11H9M16,15V19H22V15H16Z",
-              itemFilterConfig: {
-                enableHighlighting: false,
-                aggregateResults: "collection_group",
-                resultType: "cards",
-                filtersTitle: "",
-                filterProperties: [],
-                resultsTitle: "Explore more indicators",
-                subTitleProperty: "subtitle",
-                imageProperty: "thumbnail",
-                cssVars: {
-                  "--filter-display": "none",
-                },
-              },
-            },
-          },
-        },
-        {
-          defineWidget: (selectedSTAC) => {
-            return selectedSTAC
-              ? {
-                  id: Symbol(),
-                  type: "internal",
-                  title: "Layers",
-                  layout: { x: 0, y: 1, w: "3/3/2", h: 10 },
-                  widget: {
-                    name: "EodashLayerControl",
-                    properties: {
-                      slider: false,
-                      tools: ["info", "legend"],
-                      cssVars: {
-                        "--list-padding": "-8px",
-                        "--tools-button-visibility": "none",
-                        "--layer-input-visibility": "none",
-                        "--layer-type-visibility": "none",
-                        "--padding": "8px",
-                        "--padding-vertical": "16px",
-                        "--layer-tools-button-visibility": "none",
-                        "--layer-summary-visibility": "none",
-                        "--layer-visibility": "none",
-                      },
-                    },
-                  },
-                }
-              : null;
-          },
-        },
-        {
-          defineWidget: (selectedSTAC) => {
-            return selectedSTAC
-              ? {
-                  id: Symbol(),
-                  type: "internal",
-                  title: "Information",
-                  layout: { x: "9/9/10", y: 0, w: "3/3/2", h: 11 },
-                  widget: {
-                    name: "EodashStacInfo",
-                    properties: {
-                      tags: [],
-                      header: [],
-                      footer: [],
-                      body: ["description"],
-                      styleOverride: "",
-                      featured: [],
-                    },
-                  },
-                }
-              : null;
-          },
-        },
-        {
-          defineWidget: (selectedSTAC) => {
-            return selectedSTAC
-              ? {
-                  id: Symbol(),
-                  type: "internal",
-                  layout: { x: 4, y: 7, w: 4, h: 5 },
-                  title: "Date",
-                  widget: {
-                    name: "EodashDatePicker",
-                    properties: {
-                      hintText: `<b>Hint:</b> closest available date is displayed <br />
-                            on map (see Analysis Layers)`,
-                    },
-                  },
-                }
-              : null;
-          },
-        },
-      ],
-    },
-    demo: {
-      gap: 16,
-      loading: {
-        id: Symbol(),
-        type: "web-component",
-        widget: {
-          // https://uiball.com/ldrs/
-          link: "https://cdn.jsdelivr.net/npm/ldrs/dist/auto/mirage.js",
-          tagName: "l-mirage",
-          properties: {
-            class: "align-self-center justify-self-center",
-            size: "120",
-            speed: "2.5",
-            color: "#004170",
-          },
-        },
-      },
-      background: {
-        id: "background-map-demo",
-        type: "internal",
-        widget: {
-          name: "EodashMap",
-          properties: {
-            enableCompare: false,
-            zoomToExtent: false,
-            btns: {
-              enableExportMap: false,
-              enableCompareIndicators: false,
-              enableSearch: false,
-            },
-            btnsPosition: {
-              x: 12,
-              y: 2,
-            },
-          },
-        },
-      },
-      widgets: [
-        {
-          id: Symbol(),
-          type: "internal",
-          title: "Tools",
-          layout: { x: 0, y: 0, w: "3/3/2", h: 1 },
-          widget: {
-            name: "EodashTools",
-            properties: {
-              itemFilterConfig: {
-                enableHighlighting: false,
-                resultType: "cards",
-                filtersTitle: "",
-                filterProperties: [],
-                resultsTitle: "Explore more indicators",
-                subTitleProperty: "subtitle",
-                imageProperty: "thumbnail",
-                aggregateResults: "collection_group",
-                cssVars: {
-                  "--filter-display": "none",
-                },
-              },
-            },
-          },
-        },
-        {
-          defineWidget: (selectedSTAC) => {
-            return selectedSTAC
-              ? {
-                  id: Symbol(),
-                  type: "internal",
-                  title: "Layers",
-                  layout: { x: 0, y: 10, w: "3/3/2", h: 2 },
-                  widget: {
-                    name: "EodashLayerControl",
-                    properties: {
-                      slider: false,
-                      tools: ["legend"],
-                      cssVars: {
-                        "--list-padding": "-16px",
-                        "--tools-button-visibility": "none",
-                        "--layer-input-visibility": "none",
-                        "--layer-type-visibility": "none",
-                        "--padding": "8px",
-                        "--padding-vertical": "16px",
-                        "--layer-tools-button-visibility": "none",
-                        "--layer-toggle-button-visibility": "flex",
-                        "--layer-summary-visibility": "none",
-                        "--layer-visibility": "none",
-                        "margin-top": "-34px",
-                        "--item-hover-color": "transparent",
-                      },
-                      title: false,
-                    },
-                  },
-                }
-              : null;
-          },
-        },
-        {
-          defineWidget: (selectedSTAC) => {
-            return selectedSTAC
-              ? {
-                  id: Symbol(),
-                  type: "internal",
-                  title: "Information",
-                  layout: { x: "0", y: 1, w: "3/3/2", h: 9 },
-                  widget: {
-                    name: "EodashStacInfo",
-                    properties: {
-                      tags: [],
-                      header: [],
-                      footer: [],
-                      body: ["description"],
-                      styleOverride: "",
-                      featured: [],
-                    },
-                  },
-                }
-              : null;
-          },
-        },
-        {
-          defineWidget: (selectedSTAC) => {
-            return selectedSTAC
-              ? {
-                  id: Symbol(),
-                  type: "internal",
-                  layout: { x: "9/9/10", y: 7, w: "3/3/2", h: 5 },
-                  title: "Date",
-                  widget: {
-                    name: "EodashDatePicker",
-                    properties: {
-                      hintText: `<b>Hint:</b> closest available date is displayed <br />
-                            on map (see Analysis Layers)`,
-                      hideInputField: true,
-                      hideArrows: true,
-                      style: "margin-right: 0",
-                    },
-                  },
-                }
-              : null;
-          },
-        },
-      ],
-    },
     compare: {
       gap: 16,
       loading: {
@@ -529,24 +232,10 @@ export default {
                 enableHighlighting: false,
                 filterProperties: [
                   {
-                    keys: ["title", "themes"],
+                    keys: ["title"],
                     title: "Search",
                     placeholder: "Search by name",
                     type: "text",
-                    expanded: isMobile() ? false : true,
-                  },
-                  {
-                    key: "themes",
-                    title: "Themes",
-                    placeholder: "Filter by theme",
-                    type: "multiselect",
-                    expanded: isMobile() ? false : true,
-                  },
-                  {
-                    key: "tags",
-                    title: "Tags",
-                    placeholder: "Filter by tags",
-                    type: "multiselect",
                     expanded: isMobile() ? false : true,
                   },
                 ],
@@ -554,9 +243,6 @@ export default {
                 resultType: "cards",
                 subTitleProperty: "subtitle",
                 imageProperty: "thumbnail",
-                style: {
-                  "--select-filter-max-items": 8,
-                },
               },
             },
           },
@@ -577,24 +263,10 @@ export default {
                 enableHighlighting: false,
                 filterProperties: [
                   {
-                    keys: ["title", "themes"],
+                    keys: ["title"],
                     title: "Search",
                     placeholder: "Search by name",
                     type: "text",
-                    expanded: isMobile() ? false : true,
-                  },
-                  {
-                    key: "themes",
-                    title: "Themes",
-                    placeholder: "Filter by theme",
-                    type: "multiselect",
-                    expanded: isMobile() ? false : true,
-                  },
-                  {
-                    key: "tags",
-                    title: "Tags",
-                    placeholder: "Filter by tags",
-                    type: "multiselect",
                     expanded: isMobile() ? false : true,
                   },
                 ],
@@ -602,9 +274,6 @@ export default {
                 resultType: "cards",
                 subTitleProperty: "subtitle",
                 imageProperty: "thumbnail",
-                style: {
-                  "--select-filter-max-items": 8,
-                },
                 filtersTitle: "Select an indicator to compare",
                 resultsTitle: "",
               },
