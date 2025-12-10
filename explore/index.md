@@ -4,7 +4,7 @@ layout: false
 
 <script setup>
     import { withBase } from 'vitepress'
-    import VPNav from 'vitepress/dist/client/theme-default/components/VPNav.vue';>
+    import VPNav from 'vitepress/dist/client/theme-default/components/VPNav.vue';
 </script>
 
 <VPNav />
