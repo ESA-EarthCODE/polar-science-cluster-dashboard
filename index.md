@@ -18,6 +18,4 @@ As part of the initiative, and to facilitate easier analysis of and access to sc
 
 See [Antarctica Insync website](https://www.antarctica-insync.org/) for more information on the activities.
 
-<style>
- 
-</style>
+For more information and access to the data see the [related EarthCODE forum thread](https://discourse-earthcode.eox.at/t/antartica-insync-data-cubes/107) 
